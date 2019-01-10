@@ -1,0 +1,543 @@
+\documentclass[slidestop,compress,mathserif, aspectratio = 169]{beamer}
+\usecolortheme{seagull} % Beamer color theme
+\useinnertheme{rectangles}% Beamer color theme
+\usepackage[round]{natbib}
+\usepackage{bibentry}
+\usepackage{graphicx}
+\usepackage{epigraph}
+\usepackage{makeidx}
+\usepackage[]{amsmath}
+\usepackage[]{amssymb}
+\usepackage{color}
+\usepackage{pict2e}
+\usepackage{algorithm2e}
+\usepackage[english]{babel}
+\usepackage{tikz}
+\usetikzlibrary{mindmap}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage{multimedia}
+\usepackage{xcolor}
+\usepackage{keyval}
+\usepgfmodule{shapes}
+\usepackage{pgfplots}
+\usepackage{sansmath}
+\usepackage{pgfgantt}
+\usetikzlibrary{arrows}
+\usepackage{colortbl}
+\usepackage{array}
+
+ \pgfplotsset{width=7cm, height = 7cm}
+ 
+\definecolor{mint}{rgb}{0,177,172}
+\graphicspath{{../../../../Vorlesungen/figures/}}
+
+\newcommand{\source}[1]{\rotatebox{90}{\tiny \color{gray} #1}}
+\begin{document}
+%% Formalia
+\newcommand{\revision}{\today}
+\newcommand{\docnum}{\jobname}
+\newcommand{\offslide}[2]{\frame{\frametitle{\includegraphics[scale=0.01]{Off} \hspace{.1cm} #1}
+%\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+\framesubtitle{#2}
+\begin{center} \end{center}}}
+
+\title[FHAC Rail Vehicle Engineering]{Rail Vehicle Engineering in Aachen}
+\subtitle{}
+\author[R. Pfaff]{Prof. Dr. Raphael Pfaff}
+\institute[\jobname]{Fachhochschule Aachen University of Applied Sciences}
+\logo{\put(-18, 170){\includegraphics[width=1.4cm]{logoR}}}
+
+
+\maketitle
+
+
+%\frame{\frametitle{Basis for Specialisation}
+%\framesubtitle{In the context of this programme, Rail Vehicle Engineering (RVE) is considered as a specialisation of a mechatronics education.}
+%\begin{itemize}
+%\item Mathematics (16 credits): Calculus, Algebra, Differential Equations, Numerical Mathematics
+%\item Physics (7 credits)
+%\item Mechanics (19 credits)
+%\item Materials (8 credits)
+%\item Electrical Engineering/Electronics (5 credits)
+%\item Systems and Control (5 credits)
+%\item Machine Elements (11 credits)
+%\item Thermodynamics (5 credits)
+%\item Other Modules: Computer Sciences (5 credits), CAD and Drawing (5 credits), Manufacturing Processes (5 credits), Engineering English (3 credits) 
+%\end{itemize}
+%}
+
+\frame{\frametitle{Who we are}
+\framesubtitle{Rail expertise from all perspectives: operator, integrator, supplier and science}
+\begin{columns}[t] 
+     \begin{column}[T]{7cm} 
+     	\begin{itemize}
+     		\only<1>{\item Prof. Dr.-Ing. M. Enning:
+		\begin{itemize}
+		\item Railway Systems Engineering
+		\item Formerly RWTH Aachen
+		\item Experience:
+		\begin{itemize}
+		\item Control Engineering
+		\item Freight
+		\item Adhesion control systems
+		\item Train protection systems
+		\item Networks
+		\item Traffic estimation
+		\end{itemize}
+		\end{itemize}}
+		\only<2>{\item Prof. Dr.-Ing. B. Schmidt
+		\begin{itemize}
+		\item Railway Drive Systems
+		\item Formerly large Consulting Firm
+		\item Experience:
+		\begin{itemize}
+		\item Transport science
+		\item Consulting
+		\item Whole Life Cost
+		\item Reliability
+		\item Bid Processes
+		\end{itemize}
+		\end{itemize} }
+		\only<3>{\item Prof. Dr. Raphael Pfaff
+		\begin{itemize}
+		\item Rail Vehicle Engineering
+		\item Formerly Faiveley Transport, Siemens
+		\item Experience:
+		\begin{itemize}
+		\item Braking systems
+		\item Buff and Draft Gears
+		\item System Engineering
+		\item Product Engineering
+		\item Reliability Engineering
+		\item Claim Management
+		\item Sales and Marketing
+		\end{itemize}
+		\end{itemize}}
+     	\end{itemize}
+     \end{column}
+     	\begin{column}[T]{7cm} 
+         	\begin{center}
+			\vspace{-.5cm}
+            		\includegraphics[width=0.7\textwidth]{Wir}\source{}
+        		\end{center}
+     \end{column}
+ \end{columns}
+}
+
+
+
+\frame{\frametitle{What we do}
+\framesubtitle{Teaching, Research, Development and Consulting along the value chain in the rail sector}
+\begin{columns}[t] 
+     \begin{column}[T]{7cm} 
+     	\begin{itemize}
+     		\only<1>{\item Teaching:
+		\begin{itemize}
+		\item Rail Vehicle Engineering
+		\item Railway Drive System
+		\begin{itemize}
+		\item Electrical Drives
+		\item Diesel and Hybrid Drives
+		\end{itemize}
+		\item Signalling and Interlock
+		\item Control and Simulation Techniques
+		\item Manufacturing and Marketing
+		\item Drives Technology
+		\begin{itemize}
+		\item Electrical Drives
+		\item Pneumatics
+		\end{itemize}
+		\item Statistical Methods
+		\item Methods in Quality Management
+		\end{itemize}}
+		\only<2->{\item Current R\&D foci:
+		\begin{itemize}
+		\item IoT-connected wagon ``Wagon 4.0''
+		\item Refurbishment of legacy electrical locomotives
+		\item Reliability Estimation using Big Data approaches
+		\item Usage of Additive Manufacturing 
+		\item Wheel-Rail-Contact Modelling% under sanding
+		\item Ad hoc-Estimation of braking curves
+		\item Applications of machine learning for railways  
+		\end{itemize}}
+     	\end{itemize}
+     \end{column}
+     	\begin{column}[T]{7cm} 
+         	\begin{center}
+            		\only<1>{\includegraphics[width=0.8\textwidth]{Lehre}\source{}}
+			%%
+			\only<2>{\includegraphics[width=0.95\textwidth]{TrainConceptWagon40}\source{}}
+			\only<3>{\includegraphics[width=0.7\textwidth]{Rekuperation}\source{}}
+			%%
+			\only<4>{
+			\vspace{-.6cm}
+			\begin{tikzpicture}
+                            \begin{axis}[no marks,
+                            xmax=15, xmin = 0,
+                             ymin = 0, ymax = 1, grid=both,
+                            %axis lines=middle, 
+                            %ylabel = {$p$},
+                            xlabel = {$t/\mathrm{a}$},
+                            legend entries={$\bar{F}$, $h$, $\bar{F}_{\text{main}}$, $\hat{F}$, 
+                            $\hat{h}$}, 
+                            legend style = {at={(0.05,0.5)},
+                                    anchor=west}]
+                            
+                              \addplot[thick, draw = magenta!70!black] table[x=t,y=Fq] {WeibullEstCensored.dat}; 
+                            
+                             \addplot[thick, draw = orange!80!black] table[x=t,y=h] {WeibullEstCensored.dat}; 
+                            
+                             \addplot[thick, draw = red!70!black] table[x=t,y=Fqest] {WeibullEstCensored2.dat}; 
+                                
+                              
+                              \addplot[thick, draw = green!70!black] table[x=t,y=Fqsim] {WeibullEstCensored.dat}; 
+                              
+                              
+                             \addplot[thick, draw = blue!70!black] table[x=t,y=hest] {WeibullEstCensored.dat}
+                             coordinate [pos=0.5] (A)
+                               coordinate [pos=0.6]  (B)
+                             ; 
+                             \fill[fill = blue!70!black, opacity = .7] (A) -| (B)
+                             node [pos=0.75,anchor=west]
+                                 {$\triangle h$};
+                             \end{axis}
+                            \end{tikzpicture}
+                            }
+                            \only<5>{\includegraphics[width=0.2\textwidth]{TestFeder4b} \hspace{3mm}
+                            		\includegraphics[width=0.2\textwidth]{TestFeder4a} \vspace{3mm}\\
+					\includegraphics[width=0.2\textwidth]{TestFeder1b}\hspace{3mm}
+					\includegraphics[width=0.4\textwidth]{TestFeder1a}}
+                            \only<6>{\includegraphics[width=0.9\textwidth]{AreaComp}\source{}}
+                            \only<7>{\vspace{-.6cm}
+                            \includegraphics[width=0.7\textwidth]{ETCSmhist}\\
+                            		\hspace{1.5cm} \includegraphics[width=0.7\textwidth]{ETCShist}}
+		\only<8>{\includegraphics[width=0.9\textwidth]{170505GPCascadeClassifier}}
+        		\end{center}
+     \end{column}
+ \end{columns}
+}
+
+\frame{\frametitle{Lab Space Rail Vehicle Engineering}
+\framesubtitle{}
+\begin{columns}[t] 
+     \begin{column}[T]{7cm} 
+     \textbf{Today:}
+     	\begin{itemize}
+     		\item Lab Goethestra{\ss}e
+		\begin{itemize}
+		\item Several distributed lab spaces
+		\end{itemize}
+		\item Rail Access ``as a service'' in Aachen possible
+     	\end{itemize}
+         	\begin{center}
+            		\includegraphics[width=0.5\textwidth]{KarteAC}
+        		\end{center}
+	  \end{column}
+     	\begin{column}[T]{7cm} 
+	\textbf{2018:}
+     	\begin{itemize}
+     		\item Center of Competence Mobility Aachen
+		\begin{itemize}
+		\item 180 m$^2$
+		\item Track
+		\item 15 kV power supply
+		\end{itemize}
+		\item[] Vision: ``Loco in a lab'' 
+     	\end{itemize}
+         	\begin{center}
+            		\includegraphics[width=0.6\textwidth]{KMAC}
+        		\end{center}
+
+     \end{column}
+ \end{columns}
+}
+
+
+
+\frame{\frametitle{Vision 2020: ``Loco in a Lab''}
+\framesubtitle{Common lab space for Rail Vehicle Engineering, Railway Drives and Railway Systems Engineering}
+\begin{columns}[t] 
+     \begin{column}[T]{7cm} 
+     	\begin{itemize}
+     		\item Cab simulation
+		\item 700 kW electric motor test rig
+		\item Train braking system
+		\item Door system
+		\item[+] Network communication
+		\item[+] Hardware-in-the-Loop
+		\item[+] Further subsystems, e.g.
+		\begin{itemize}
+		\item Hybrid Drive
+		\item Pantograph
+		\item Compressed air generation
+		\end{itemize} 
+     	\end{itemize}
+     \end{column}
+     	\begin{column}[T]{7cm} 
+         	\begin{center}
+            		\includegraphics[width=0.8\textwidth]{KMAC}
+        		\end{center}
+     \end{column}
+ \end{columns}
+}
+
+%\frame{\frametitle{RVE Basic Modules}
+%\framesubtitle{}
+%\begin{columns}[t] 
+%     \begin{column}[T]{7cm} 
+%     \textbf{Economy and Technology} (5 credits)
+%     	\begin{itemize}
+%		\item Ecomomics:
+%		\begin{itemize}
+%     		\item Basic Concepts
+%		\item Economic Systems
+%		\item Market and State
+%		\item Legal forms and frameworks
+%		\item Profit and Loss of RUs
+%		\item Environment
+%		\end{itemize}
+%		\item Basic Rail Vehicle Technology
+%		\item Mass-Transit-Applications
+%		\item Introduction to Signaling Systems
+%		\item Introduction to Drives
+%		\item Basics of Lifecycle Costing
+%     	\end{itemize}
+%     \end{column}
+%     	\begin{column}[T]{7cm} 
+%	\textbf{Quality and Safety in the Lifecycle} (5 credits)
+%         	\begin{itemize}
+%     		\item Maintenance
+%		\begin{itemize}
+%		\item Planning
+%		\item Infrastructure
+%		\item Execution
+%		\item Lifecycle cost modelling and optimisation
+%		\end{itemize}
+%		\item Safety
+%		\begin{itemize}
+%		\item Reliability and Safety Engineering
+%		\item Risk assessment
+%		\item Risk reduction
+%		\item Homologation process
+%		\end{itemize}
+%	     	\end{itemize}
+%     \end{column}
+% \end{columns}
+%}
+%
+%
+%\frame{\frametitle{RVE Core Modules: Rail Vehicle Engineering}
+%\framesubtitle{}
+%\begin{columns}[t] 
+%     \begin{column}[T]{7cm} 
+%     \textbf{Rail Vehicle Engineering 1} (5 credits)
+%     	\begin{itemize}
+%     		\item Introduction to Rail Vehicles
+%		\begin{itemize}
+%		\item Taxonomy
+%		\item Requirements
+%		\item Structures
+%		\end{itemize}
+%		\item Running dynamics of rail vehciles
+%		\begin{itemize}
+%		\item Longitudinal dynamics
+%		\item Lateral dynamics
+%		\item Wheel rail interface
+%		\end{itemize}
+%		\item Vehicle design
+%		\begin{itemize}
+%		\item Principles
+%		\item Gauging
+%		\end{itemize}
+%		\item Running gear
+%     	\end{itemize}
+%     \end{column}
+%     	\begin{column}[T]{7cm} 
+%	\textbf{Rail Vehicle Engineering 2} (5 credits)
+%         	\begin{itemize}
+%     		\item Running dynamics and comfort
+%%		\begin{itemize}
+%%		\item Stability of vehicles
+%%		\item Comfort dynamics
+%%		\end{itemize}
+%		\item Vehicle types and components
+%%		\begin{itemize}
+%%		\item Passenger vehicles
+%%		\item Freight vehicles
+%%		\end{itemize}
+%		\item Human-Machine Interface
+%		\item Safety in Rail Vehicles
+%		\item Buff and Draft Gear
+%		\item Railway Braking System
+%		\begin{itemize}
+%		\item Automatic Brake
+%		\item Brake force generation
+%		\item Compressed air supply
+%		\item Driver's Brake Valve
+%		\item ep-Brake, Emergency Brake
+%		\item Wheel-Slide-Protection
+%		\item Operational Aspects
+%		\end{itemize}
+%     	\end{itemize}
+%     \end{column}
+% \end{columns}
+%}
+%
+%\frame{\frametitle{RVE Core Modules: Drives}
+%\framesubtitle{}
+%\begin{columns}[t] 
+%     \begin{column}[T]{7cm} 
+%     \textbf{Electrical Rail Vehicle Drives 1} (5 credits)
+%     	\begin{itemize}
+%     		\item Tractive forces
+%		\item Running resistances
+%		\item Drive Train dynamics
+%		\item Power Collection
+%		\item Power Transformer
+%		\item Converters
+%		\item Electrical Motors
+%		\begin{itemize}
+%		\item Characteristics
+%		\item Control system
+%		\end{itemize}
+%		\item Gear system
+%		\item Wheel Slip Prevention
+%     	\end{itemize}
+%     \end{column}
+%     	\begin{column}[T]{7cm} 
+%	\textbf{Diesel and Hybrid Rail Vehicle Drives 2} (5 credits)
+%         	\begin{itemize}
+%     		\item Diesel Engines
+%		\begin{itemize}
+%		\item Design principles
+%		\item Power conversion
+%		\item Efficiency
+%		\item Adjustment
+%		\item Maintenance
+%		\end{itemize}
+%		\item Diesel-Electric Drivetrain
+%		\begin{itemize}
+%		\item Generators and Converters
+%		\end{itemize}
+%		\item Diesel-Hydraulic Drivetrain
+%		\begin{itemize}
+%		\item Design Principles
+%		\item Power Conversion
+%		\end{itemize}
+%		\item Energy Storage
+%		\begin{itemize}
+%		\item Battery Systems
+%		\item Battery Management
+%		\end{itemize}
+%     	\end{itemize}
+%     \end{column}
+% \end{columns}
+%}
+%
+%\frame{\frametitle{RVE Core Modules: Rail Systems Engineering}
+%\framesubtitle{}
+%\begin{columns}[t] 
+%     \begin{column}[T]{7cm} 
+%     \textbf{Signalling and Interlock} (5 credits)
+%     	\begin{itemize}
+%     		\item Signal types
+%		\item Block signalling
+%		\item Train Protection Systems
+%		\begin{itemize}
+%		\item Intermittent TPS (PZB)
+%		\item Continuous Train Control (LZB)
+%		\item European Train Control System (ETCS)
+%		\end{itemize}
+%		\item Cab signalling
+%		\item Interlocking architecture
+%     	\end{itemize}
+%     \end{column}
+%     	\begin{column}[T]{7cm} 
+%	\textbf{Control and Simulation Techniques} (5 credits)
+%         	\begin{itemize}
+%     		\item Control Systems for Rail Vehicles
+%		\begin{itemize}
+%		\item Requirements
+%		\item Architectures
+%		\item Bus communication (MVB, WTB, CAN, ...)
+%		\item Documentation
+%		\item Testing
+%		\end{itemize}
+%		\item Simulation and control applications
+%		\begin{itemize}
+%		\item Impact simulation
+%		\item Door control system
+%		\end{itemize}
+%		\end{itemize}
+%	\end{column}
+%     	 \end{columns}
+%}
+%
+%\frame{\frametitle{RVE Additional Modules}
+%\framesubtitle{}
+%\begin{columns}[t] 
+%     \begin{column}[T]{7cm} 
+%     \textbf{Manufacturing and Marketing of Rail Vehicles} (5 credits)
+%     	\begin{itemize}
+%     		\item Market segmentation
+%		\item Market barriers
+%		\item Contract design
+%		\item Requirements Engineering
+%		\item Project estimation
+%		\item Project planning
+%		\item Rail Vehicle Structures
+%		\item Welding
+%		\item Screw connections
+%		\item Corrosion protection
+%		\item Commissioning
+%     	\end{itemize}
+%     \end{column}
+%     	\begin{column}[T]{7cm} 
+%	\begin{itemize}
+%         	\item Mobility module
+%	\begin{itemize}
+%		\item Internship at railway company or supplier (30 credits)
+%		\item Studies at international university (30 credits)
+%		\end{itemize}
+%		\item Testing and Measurement Project (8 credits)
+%		\begin{itemize}
+%		\item Real life application of measurement techniques
+%		\item Documentation of results
+%		\end{itemize}
+%		\item Elective module 1 (5 credits)
+%		\begin{itemize}
+%		\item From mechanical engineering catalogue%, e.g. FEA calculations, Multibody dynamics
+%		\end{itemize}
+%		\item Elective module 2 (5 credits)
+%		\begin{itemize}
+%		\item From general engineering and economy catalogue%, e.g. Design of railway infrastructure, 
+%		\end{itemize}
+%\end{itemize}
+%     \end{column}
+% \end{columns}
+%}
+
+
+\frame{\frametitle{Thank you for your participation!}
+\begin{center}
+			%\vspace{.2cm}
+            		\includegraphics[width=.8\textwidth]{Lecker}
+        		\end{center}
+\begin{columns}[t] 
+\begin{column}[T]{1cm} 
+     	\end{column}
+     \begin{column}[T]{5cm} 
+     	
+     \end{column}
+     	\begin{column}[T]{5cm} 
+         	Prof. Dr. Raphael Pfaff\\
+		Rail Vehicle Engineering\\
+		pfaff@fh-aachen.de \\
+		www.raphaelpfaff.net
+     \end{column}
+ \end{columns}
+}
+
+
+\end{document}
